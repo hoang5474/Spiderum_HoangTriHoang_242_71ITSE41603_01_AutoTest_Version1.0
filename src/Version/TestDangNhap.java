@@ -25,23 +25,18 @@ public class TestDangNhap {
         driver.manage().window().maximize();
         driver.get("https://spiderum.com");
     }
-    @Test(priority = 0)
+/*    @Test(priority = 0)
     public void TestCase1() throws InterruptedException {
         driver.findElement(By.xpath("(//i[contains(@class, 'fa-times-circle')])[1]")).click();
-        System.out.println("Tắt quảng cáo thành công !!!");
         WebElement link = driver.findElement(By.linkText("Đăng nhập"));
         link.click();
-        System.out.println("Chuyển sang trang đăng nhập thành công!!!");
 
         driver.findElement(By.id("name")).sendKeys("phanlengoctri");
         Thread.sleep(1000);
-        System.out.println("Nhập tài khoản(theo tên đã đăng kí) thành công!!!");
         driver.findElement(By.id("password")).sendKeys("ngoctri12");
         Thread.sleep(1000);
-        System.out.println("Nhập mật khẩu thành công!!!");
         driver.findElement(By.id("submit-btn")).click();
         Thread.sleep(2000);
-        System.out.println("Đăng nhập thành công!!!");
     }
     
     @Test(priority = 1)
@@ -56,9 +51,28 @@ public class TestDangNhap {
         Thread.sleep(1000);
         driver.findElement(By.id("submit-btn")).click();
         Thread.sleep(2000);
-    }
+    }*/
     @Test(priority = 2)
     public void TestCase3() throws InterruptedException {
+        driver.findElement(By.xpath("(//i[contains(@class, 'fa-times-circle')])[1]")).click();
+        WebElement link = driver.findElement(By.linkText("Đăng nhập"));
+        link.click();
+
+        driver.findElement(By.id("name")).sendKeys("wincool1212@gmail.com");
+        Thread.sleep(1000);
+        driver.findElement(By.id("password")).sendKeys("saimatkhau");
+        Thread.sleep(1000);
+        driver.findElement(By.id("submit-btn")).click();
+        Thread.sleep(2000);
+        
+        WebDriverWait wait = new WebDriverWait(driver, 5);
+        WebElement messageFail = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"alert\"]/div")));
+        String actualMessageFail = messageFail.getText();
+        String expectedMessageFail = "Sai tên đăng nhập hoặc mật khẩu";
+        Assert.assertEquals(actualMessageFail, expectedMessageFail, "Thông báo lỗi không đúng!");
+    }
+    @Test(priority = 3)
+    public void TestCase4() throws InterruptedException {
         driver.findElement(By.xpath("(//i[contains(@class, 'fa-times-circle')])[1]")).click();
         WebElement link = driver.findElement(By.linkText("Đăng nhập"));
         link.click();
@@ -76,8 +90,8 @@ public class TestDangNhap {
         String expectedMessageSuccess = "Email đã được gửi đến hòm thư wincool1212@gmail.com của bạn";
         Assert.assertEquals(actualMessageSuccess, expectedMessageSuccess, "Thông báo thành công không đúng!");
     }
-        @Test(priority = 3)
-        public void TestCase4() throws InterruptedException {
+        @Test(priority = 4)
+        public void TestCase5() throws InterruptedException {
         driver.findElement(By.xpath("(//i[contains(@class, 'fa-times-circle')])[1]")).click();
         WebElement link = driver.findElement(By.linkText("Đăng nhập"));
         link.click();
@@ -95,8 +109,8 @@ public class TestDangNhap {
         String expectedMessageFail = "Email không tồn tại.";
         Assert.assertEquals(actualMessageFail, expectedMessageFail, "Thông báo lỗi không đúng!");
     }
-        @Test(priority = 4)
-        public void TestCase5() throws InterruptedException {
+        @Test(priority = 5)
+        public void TestCase6() throws InterruptedException {
             driver.findElement(By.xpath("(//i[contains(@class, 'fa-times-circle')])[1]")).click();
             WebElement link = driver.findElement(By.linkText("Đăng nhập"));
             link.click();

@@ -25,7 +25,7 @@ public class TestDangNhap {
         driver.manage().window().maximize();
         driver.get("https://spiderum.com");
     }
-/*    @Test(priority = 0)
+    @Test(priority = 0)
     public void TestCase1() throws InterruptedException {
         driver.findElement(By.xpath("(//i[contains(@class, 'fa-times-circle')])[1]")).click();
         WebElement link = driver.findElement(By.linkText("Đăng nhập"));
@@ -51,7 +51,7 @@ public class TestDangNhap {
         Thread.sleep(1000);
         driver.findElement(By.id("submit-btn")).click();
         Thread.sleep(2000);
-    }*/
+    }
     @Test(priority = 2)
     public void TestCase3() throws InterruptedException {
         driver.findElement(By.xpath("(//i[contains(@class, 'fa-times-circle')])[1]")).click();
